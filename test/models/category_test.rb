@@ -27,7 +27,7 @@ class CategoryTest < ActiveSupport::TestCase
   end
   
   test "name should be too long " do
-    @category.name = "a" * 12
+    @category.name = "a" * 21
     assert @category.invalid?
   end
 end
