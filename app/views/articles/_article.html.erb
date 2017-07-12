@@ -6,11 +6,14 @@
       </div>
       <div class="article-body">
         <%= truncate(article.description, length: 100) %>
+        <% if article.categories.any? %>
+          <p class="category-list">Catergories: <%= render article.categories %></p> 
+        <% end %>
         <div class="article-meta-details">
           <small>
-            Created by:<%= article.user.username if article.user %>
+            Created by: <%= article.user.username if article.user %>
             <%=time_ago_in_words(article.created_at) %> ago, 
-            last updated:<%= time_ago_in_words(article.updated_at) %> ago
+            last updated: <%= time_ago_in_words(article.updated_at) %> ago
           </small>
         </div>
       </div>
